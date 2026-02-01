@@ -18,19 +18,10 @@ The **Zerocard Agent Kit** is an official skill for OpenClaw and Clawdbot that e
 - **OpenClaw or Clawdbot**: Have your agent environment ready.
 
 ### 2. Setup the Skill
-If you haven't already, clone the official skills repository:
-```bash
 git clone https://github.com/getzerocard/clawdcard-skills
-```
 
-Now, copy the agent kit into your hidden `.openclaw` directory:
-```bash
-# Create the skills folder if it doesn't exist
-mkdir -p ~/.openclaw/skills
-
-# Copy the agent kit skill
+Now, copy the zerocard-agent-kit into your hidden `.openclaw` directory:
 cp -r clawdcard-skills/zerocard-agent-kit ~/.openclaw/skills/
-```
 
 ### 3. Configure API Key
 Set your agent key as an environment variable:
