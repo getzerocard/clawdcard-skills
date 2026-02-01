@@ -1,6 +1,6 @@
-# 💳 Zerocard Agent Kit
+# Clawdcard powered by Zerocard
 
-The **Zerocard Agent Kit** is an official skill for OpenClaw and Clawdbot that empowers AI agents with financial capabilities. It allows agents to manage their own wallets, check balances, and make payments securely using virtual debit cards.
+The **Clawdcard powered by Zerocard** is an official skill for OpenClaw and Clawdbot that empowers AI agents with financial capabilities. It allows agents to manage their own wallets, check balances, and make payments securely using virtual debit cards.
 
 ## 🚀 Key Features
 

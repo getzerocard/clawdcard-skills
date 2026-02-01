@@ -6,7 +6,7 @@ metadata: { "openclaw": { "emoji": "💳", "requires": { "env": ["ZEROCARD_AGENT
 bins: ["node"]
 ---
 
-# Zerocard Agent-Kit (Official Clawdbot Skill): Financial System for AI Agents
+# Clawdcard powered by Zerocard (Official Clawdbot Skill): Financial System for AI Agents
 
 You have access to a financial management system through Zerocard. This enables you to:
 - Check your wallet balance
