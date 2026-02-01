@@ -14,7 +14,7 @@ The **Zerocard Agent Kit** is an official skill for OpenClaw and Clawdbot that e
 ## 🛠 Installation Guide
 
 ### 1. Prerequisites
-- **A Zerocard Agent Key**: Get your API key (starting with `sk_agent_...`) from [getzerocard.com](https://getzerocard.com).
+- **A Zerocard Agent Key**: Get your API key (starting with `sk_agent_...`) from [agent.getzerocard.xyz](https://agent.getzerocard.xyz).
 - **OpenClaw or Clawdbot**: Have your agent environment ready.
 
 ### 2. Setup the Skill
@@ -65,4 +65,4 @@ The agent uses the `zerocard-cli.js` internally to perform these actions and rep
 
 ---
 
-**Official Documentation**: [getzerocard.com](https://getzerocard.com)
+**Official Documentation**: [agent.getzerocard.xyz](https://agent.getzerocard.xyz)

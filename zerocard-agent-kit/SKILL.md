@@ -1,7 +1,7 @@
 ---
 name: zerocard-agent-kit
 description: Financial management system for AI Agents - pay for services, manage wallet, request funds
-homepage: https://getzerocard.com
+homepage: https://agent.getzerocard.xyz
 metadata: { "openclaw": { "emoji": "💳", "requires": { "env": ["ZEROCARD_AGENT_KEY"] }, "primaryEnv": "ZEROCARD_AGENT_KEY" } }
 bins: ["node"]
 ---
