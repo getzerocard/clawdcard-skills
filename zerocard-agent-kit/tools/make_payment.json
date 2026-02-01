@@ -1,0 +1,31 @@
+{
+    "name": "zerocard_make_payment",
+    "description": "Get virtual card details (PAN, CVV, expiry) to complete a purchase. Card is reused to save fees unless force_new_card is true. ALWAYS check balance first and report expense after successful payment.",
+    "parameters": {
+        "type": "object",
+        "properties": {
+            "amount": {
+                "type": "number",
+                "description": "Transaction amount in USD"
+            },
+            "merchant": {
+                "type": "string",
+                "description": "Name of merchant/service (e.g., 'OpenAI', 'AWS', 'Vercel', 'GitHub')"
+            },
+            "purpose": {
+                "type": "string",
+                "description": "Clear reason for this expense - will be included in spending reports"
+            },
+            "force_new_card": {
+                "type": "boolean",
+                "description": "Set TRUE only if privacy is required or previous card was declined. New cards cost $1 issuance fee.",
+                "default": false
+            }
+        },
+        "required": [
+            "amount",
+            "merchant",
+            "purpose"
+        ]
+    }
+}

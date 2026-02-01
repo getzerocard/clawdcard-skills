@@ -1,0 +1,9 @@
+{
+    "name": "zerocard_get_wallet_balance",
+    "description": "Get current wallet balance and budget status. Use before making payments to verify sufficient funds.",
+    "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+    }
+}

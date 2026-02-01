@@ -1,0 +1,36 @@
+{
+    "name": "zerocard_request_funds",
+    "description": "Request additional funds from your owner when wallet balance is low. Include clear reasoning for why funds are needed.",
+    "parameters": {
+        "type": "object",
+        "properties": {
+            "amount_needed": {
+                "type": "number",
+                "description": "Amount needed in USD"
+            },
+            "reason": {
+                "type": "string",
+                "description": "Clear explanation of why these funds are needed (e.g., 'Need $20 for monthly OpenAI API subscription')"
+            },
+            "urgency": {
+                "type": "string",
+                "enum": [
+                    "low",
+                    "medium",
+                    "high"
+                ],
+                "description": "How urgently the funds are needed. 'high' for blocking tasks, 'medium' for upcoming needs, 'low' for general top-up.",
+                "default": "medium"
+            },
+            "deposit_instructions": {
+                "type": "boolean",
+                "description": "Include wallet deposit addresses in the request message",
+                "default": true
+            }
+        },
+        "required": [
+            "amount_needed",
+            "reason"
+        ]
+    }
+}

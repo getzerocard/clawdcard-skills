@@ -1,0 +1,16 @@
+{
+    "name": "zerocard_reveal_card",
+    "description": "Generate a secure URL to reveal card details visually. Use this as a high-fidelity fallback if you need to verify details. Card details are rendered instantly via backend extraction.",
+    "parameters": {
+        "type": "object",
+        "properties": {
+            "accessToken": {
+                "type": "string",
+                "description": "The access token returned by zerocard_make_payment"
+            }
+        },
+        "required": [
+            "accessToken"
+        ]
+    }
+}

@@ -1,0 +1,31 @@
+{
+    "name": "zerocard_report_expense",
+    "description": "Report completed expenses to your owner. ALWAYS call this after successful payments to maintain transparency and accountability.",
+    "parameters": {
+        "type": "object",
+        "properties": {
+            "amount": {
+                "type": "number",
+                "description": "Amount spent in USD"
+            },
+            "merchant": {
+                "type": "string",
+                "description": "Where the money was spent"
+            },
+            "purpose": {
+                "type": "string",
+                "description": "Why this expense was necessary"
+            },
+            "outcome": {
+                "type": "string",
+                "description": "What was achieved with this expense (e.g., 'API credits activated', 'Subscription confirmed')"
+            }
+        },
+        "required": [
+            "amount",
+            "merchant",
+            "purpose",
+            "outcome"
+        ]
+    }
+}

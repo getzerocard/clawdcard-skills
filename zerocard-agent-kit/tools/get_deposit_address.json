@@ -1,0 +1,20 @@
+{
+    "name": "zerocard_get_deposit_address",
+    "description": "Get wallet deposit addresses to share with owner when requesting funds. Returns crypto addresses (USDC/USDT on Base, Solana) or NGN virtual bank account.",
+    "parameters": {
+        "type": "object",
+        "properties": {
+            "type": {
+                "type": "string",
+                "enum": [
+                    "crypto",
+                    "ngn"
+                ],
+                "description": "Type of deposit: 'crypto' for USDC/USDT on supported chains, 'ngn' for Nigerian Naira bank transfer"
+            }
+        },
+        "required": [
+            "type"
+        ]
+    }
+}
