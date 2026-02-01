@@ -184,6 +184,120 @@ async function revealCard(accessToken) {
     }, null, 2));
 }
 
+/**
+ * Get billing info (name and address) for the agent's owner.
+ */
+async function getBillingInfo() {
+    try {
+        const response = await axios.get(`${API_URL}/v1/agents/billing-info`, {
+            headers: { 'x-agent-key': AGENT_KEY },
+            timeout: 10000,
+        });
+
+        console.log(JSON.stringify({
+            success: true,
+            billingInfo: response.data,
+        }, null, 2));
+    } catch (error) {
+        console.error(JSON.stringify({
+            success: false,
+            error: error.response?.data?.message || error.message,
+        }, null, 2));
+        process.exit(1);
+    }
+}
+
+/**
+ * Update the knowledge base in SKILL.md with new payment instructions.
+ */
+async function updateKnowledgeBase(platform, instructions) {
+    if (!platform || !instructions) {
+        console.error(JSON.stringify({
+            success: false,
+            error: 'Missing platform or instructions',
+        }, null, 2));
+        process.exit(1);
+    }
+
+    const fs = require('fs');
+    const path = require('path');
+    const skillPath = path.join(__dirname, '../SKILL.md');
+
+    try {
+        let content = fs.readFileSync(skillPath, 'utf8');
+        const knowledgeHeader = '## Knowledge Base';
+        const newEntry = `\n### [${platform}]\n- ${instructions}\n`;
+
+        if (content.includes(knowledgeHeader)) {
+            content = content.replace(knowledgeHeader, `${knowledgeHeader}\n${newEntry}`);
+        } else {
+            content += `\n\n${knowledgeHeader}\n${newEntry}`;
+        }
+
+        fs.writeFileSync(skillPath, content);
+
+        console.log(JSON.stringify({
+            success: true,
+            message: `Knowledge base updated for ${platform}`,
+        }, null, 2));
+    } catch (error) {
+        console.error(JSON.stringify({
+            success: false,
+            error: error.message,
+        }, null, 2));
+        process.exit(1);
+    }
+}
+
+/**
+ * Get billing info (name and address) for the agent's owner.
+ */
+async function getBillingInfo() {
+    const result = await makeRequest('GET', '/v1/agents/billing-info');
+    if (result.success) {
+        console.log(JSON.stringify({
+            success: true,
+            billingInfo: result.data,
+        }, null, 2));
+    } else {
+        console.log(JSON.stringify(result, null, 2));
+    }
+}
+
+/**
+ * Update the knowledge base in SKILL.md with new payment instructions.
+ */
+async function updateKnowledgeBase(platform, instructions) {
+    const fs = require('fs');
+    const path = require('path');
+    const skillPath = path.join(__dirname, '../SKILL.md');
+
+    try {
+        let content = fs.readFileSync(skillPath, 'utf8');
+        const knowledgeHeader = '## Knowledge Base';
+        const newEntry = `\n### [${platform}]\n- ${instructions}\n`;
+
+        if (content.includes(knowledgeHeader)) {
+            // Append right after the header for latest info first
+            content = content.replace(knowledgeHeader, `${knowledgeHeader}\n${newEntry}`);
+        } else {
+            content += `\n\n${knowledgeHeader}\n${newEntry}`;
+        }
+
+        fs.writeFileSync(skillPath, content);
+
+        console.log(JSON.stringify({
+            success: true,
+            message: `Knowledge base updated for ${platform}`,
+        }, null, 2));
+    } catch (error) {
+        console.error(JSON.stringify({
+            success: false,
+            error: error.message,
+        }, null, 2));
+        process.exit(1);
+    }
+}
 
 async function main() {
     if (!AGENT_KEY) {
@@ -250,10 +364,25 @@ async function main() {
             await requestFunds(options.amount, options.reason, options.urgency, options.deposit !== 'false');
             break;
 
+        case 'billing':
+            await getBillingInfo();
+            break;
+
+        case 'learn':
+            if (!options.platform || !options.instructions) {
+                console.error(JSON.stringify({
+                    success: false,
+                    error: 'Required: --platform, --instructions',
+                }));
+                process.exit(1);
+            }
+            await updateKnowledgeBase(options.platform, options.instructions);
+            break;
+
         default:
             console.error(JSON.stringify({
                 success: false,
-                error: 'Unknown command. Available: balance, deposit, payment, report, request-funds',
+                error: 'Unknown command. Available: balance, deposit, payment, report, request-funds, billing, learn',
             }));
             process.exit(1);
     }

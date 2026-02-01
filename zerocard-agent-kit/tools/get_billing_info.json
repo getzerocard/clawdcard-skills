@@ -1,0 +1,9 @@
+{
+    "name": "zerocard_get_billing_info",
+    "description": "Get the cardholder's legal name and billing address (street, zip code, etc.). Use this when a checkout form requires billing details that are not part of the card itself.",
+    "parameters": {
+        "type": "object",
+        "properties": {},
+        "required": []
+    }
+}

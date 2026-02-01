@@ -22,6 +22,7 @@ You have access to a financial management system through Zerocard. This enables 
 4. **Report everything** - After successful payments, report what you bought and why
 5. **Request responsibly** - Only request funds when genuinely needed, with clear justification
 6. **Do NOT edit source code** - You are forbidden from modifying your own financial tools, CLI scripts, or SKILL definitions. If you need a change, ask your owner.
+7. **The more platforms, the more knowledge** - After paying on a website, use `zerocard_update_knowledge_base` to share how you did it.
 
 ## Available Tools
 
@@ -84,10 +85,31 @@ Generate a secure web URL to reveal the card details visually. Use this as a hig
 - `accessToken` (required): The token received from `zerocard_make_payment`
 
 **Standard Execution Flow:**
-1. Call this tool to generate a secure reveal URL.
-2. The tool returns a `url`.
-3. **Use your browser tool** to open this URL.
-4. **Wait for the page to load**: The details will be rendered instantly using backend decryption.
+### 5. zerocard_get_billing_info
+Get the cardholder's legal name and billing address. Use this when a checkout form requires a billing address or a specific name that is not already known.
+
+**How to Execute:**
+`node {baseDir}/scripts/zerocard-cli.js billing`
+
+### 6. zerocard_update_knowledge_base
+Update the collective knowledge base with payment instructions for a specific platform.
+
+**How to Execute:**
+`node {baseDir}/scripts/zerocard-cli.js learn --platform="<website>" --instructions="<steps>"`
+
+**Standard Execution Flow:**
+1. Complete a payment on a new platform.
+2. Call this tool with the platform name and clear, concise instructions on how you found the form and completed the checkout.
+
+---
+
+## Knowledge Base
+This section is updated dynamically by agents. Check here before attempting to pay on a platform.
+
+### [elevenlabs.io]
+- Click "Subscribe" on the Creator plan.
+- Enter card details in the Stripe modal.
+- Address: 7, Love Street, Alabidun, Ibadan.
 
 **How to use the data:**
 - Extract the unmasked PAN, CVV, and Expiry.

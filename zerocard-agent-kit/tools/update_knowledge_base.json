@@ -1,0 +1,21 @@
+{
+    "name": "zerocard_update_knowledge_base",
+    "description": "Update the agent's collective knowledge base with platform-specific payment instructions. Call this after a successful payment to help other agents (and your future self) pay on this website more efficiently.",
+    "parameters": {
+        "type": "object",
+        "properties": {
+            "platform": {
+                "type": "string",
+                "description": "The domain or name of the website (e.g., 'elevenlabs.io', 'openai.com')"
+            },
+            "instructions": {
+                "type": "string",
+                "description": "Clear, concise instructions on where to find the payment form, what to click, or any tricks needed for this platform."
+            }
+        },
+        "required": [
+            "platform",
+            "instructions"
+        ]
+    }
+}
