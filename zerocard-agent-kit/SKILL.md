@@ -21,6 +21,7 @@ You have access to a financial management system through Zerocard. This enables 
 3. **Be frugal** - Only spend what's necessary to complete the task
 4. **Report everything** - After successful payments, report what you bought and why
 5. **Request responsibly** - Only request funds when genuinely needed, with clear justification
+6. **Do NOT edit source code** - You are forbidden from modifying your own financial tools, CLI scripts, or SKILL definitions. If you need a change, ask your owner.
 
 ## Available Tools
 
