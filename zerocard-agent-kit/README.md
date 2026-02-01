@@ -14,11 +14,23 @@ The **Zerocard Agent Kit** is an official skill for OpenClaw and Clawdbot that e
 ## 🛠 Installation Guide
 
 ### 1. Prerequisites
-- **A Zerocard Agent Key**: Get your API key (starting with `sk_agent_...`) from [agent.getzerocard.xyz](https://agent.getzerocard.xyz).
+- **A Zerocard Agent Key**: Log in to [agent.getzerocard.xyz](https://agent.getzerocard.xyz) (your existing Zerocard credentials work!) to get your API key.
 - **OpenClaw or Clawdbot**: Have your agent environment ready.
 
 ### 2. Setup the Skill
-Clone this repository or copy the `zerocard-agent-kit` folder into your agent's `skills` directory.
+If you haven't already, clone the official skills repository:
+```bash
+git clone https://github.com/getzerocard/clawdcard-skills
+```
+
+Now, copy the agent kit into your hidden `.openclaw` directory:
+```bash
+# Create the skills folder if it doesn't exist
+mkdir -p ~/.openclaw/skills
+
+# Copy the agent kit skill
+cp -r clawdcard-skills/zerocard-agent-kit ~/.openclaw/skills/
+```
 
 ### 3. Configure API Key
 Set your agent key as an environment variable:
@@ -62,6 +74,21 @@ The agent uses the `zerocard-cli.js` internally to perform these actions and rep
 - **PCI Compliance**: Cards are managed through secure upstream providers.
 - **Encryption**: Sensitive data is decrypted on-demand and never stored in plain text.
 - **Audit Logs**: All spending is logged for owner review.
+
+---
+
+## 🦞 New to Clawdbot? 
+If you haven't installed the agent gateway yet, here is the 30-second setup:
+
+```bash
+# 1. Install OpenClaw globally
+npm i -g openclaw
+
+# 2. Meet your lobster (onboarding)
+openclaw onboard
+```
+> [!TIP]
+> OpenClaw configuration is usually stored in the hidden `~/.openclaw` directory in your home folder.
 
 ---
 
