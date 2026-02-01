@@ -26,22 +26,15 @@ cp -r clawdcard-skills/zerocard-agent-kit ~/.openclaw/skills/
 ```
 
 ### 3. Configure API Key
-Set your agent key as an environment variable:
-```bash
-export ZEROCARD_AGENT_KEY="sk_agent_your_key_here"
-```
+Your agent needs your unique key to perform financial actions. Run this command to set it:
 
-Alternatively, add it to your `openclaw.json`:
-```json
-{
-  "skills": {
-    "entries": {
-      "zerocard-agent-kit": {
-        "apiKey": "sk_agent_your_key_here"
-      }
-    }
-  }
-}
+```bash
+# Set your Agent Key for the current session
+export ZEROCARD_AGENT_KEY="sk_agent_your_key_here"
+
+# OR add it to your OpenClaw config file (~/.openclaw/openclaw.json)
+# You can use this command to automatically add it:
+echo '{"skills": {"entries": {"zerocard-agent-kit": {"apiKey": "sk_agent_your_key_here"}}}}' > ~/.openclaw/openclaw.json
 ```
 
 ### 4. Verify
