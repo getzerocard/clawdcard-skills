@@ -14,7 +14,7 @@ The **Clawdcard powered by Zerocard** is an official skill for OpenClaw and Claw
 ## 🛠 Installation Guide
 
 ### 1. Prerequisites
-- **A Zerocard Agent Key**: Log in to [agent.getzerocard.xyz](https://agent.getzerocard.xyz) (your existing Zerocard credentials work!) to get your API key.
+- **A Zerocard Agent Key**: Log in to [clawdcard.xyz](https://clawdcard.xyz) (your existing Zerocard credentials work!) to get your API key.
 - **OpenClaw or Clawdbot**: Have your agent environment ready.
 
 ### 2. Setup the Skill
@@ -78,4 +78,4 @@ openclaw onboard
 
 ---
 
-**Official Documentation**: [agent.getzerocard.xyz](https://agent.getzerocard.xyz)
+**Official Documentation**: [clawdcard.xyz](https://clawdcard.xyz)
